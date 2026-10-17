@@ -1,14 +1,8 @@
-# Cache
 **/__pycache
 *.pyc
 .ruff_cache/
-
-# Environment
 .venv/
 venv/
-
-# Data Base
 db.sqlite3
-
-# Secrets
-.env
+**/.env
+**/.bills

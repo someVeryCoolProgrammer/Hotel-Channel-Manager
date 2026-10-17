@@ -22,7 +22,6 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 ("month", models.DateField()),
-                ("salaries", models.DecimalField(decimal_places=2, max_digits=12)),
                 ("rent", models.DecimalField(decimal_places=2, max_digits=12)),
                 ("water", models.DecimalField(decimal_places=2, max_digits=12)),
                 (
