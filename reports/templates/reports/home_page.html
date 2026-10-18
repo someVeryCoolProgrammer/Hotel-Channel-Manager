@@ -3,19 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Channel Manager</title>
+    <title>HCM</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'reports/home_page.css' %}">
 </head>
+
 <body>
-    <h1>Hello! Welcome to Hotel Channel Manager!</h1>
-    <p>This web app makes it easy for hotels to track their expenses while being taking privacy and security seriously.</p>
-
-    <h2>Quick Links</h2>
-    <a href="https://github.com/someVeryCoolProgrammer/Hotel-Channel-Manager/tree/main">Source Code</a>
+    <div class="home-page">
+        <div class="heading"> 
+            <h1>Tracking your hotels income and expenses made easy.</h1>
+        </div>
     
-    <br></br>
+        <div class="container">
+            <button class="login">Log In</button>
+        </div>
 
-    <footer>
-        Copyright someVeryCoolProgrammer &copy; 2026 - Present
-    </footer>
+        <div class="nav">
+            <h2>Quick Links</h2>
+            <nav>
+                <a class=source-code href="https://github.com/someVeryCoolProgrammer/Hotel-Channel-Manager/tree/main">HCM Source Code</a>
+            </nav>
+        </div>
+    
+        <div class=legal>
+            <footer>
+                Copyright someVeryCoolProgrammer &copy; 2026 - Present. All rights reserved.
+            </footer>
+        </div>
+    </div>
 </body>
 </html>
+

@@ -23,15 +23,15 @@ class Views:
                 f"gop = {gop} || base fee = {base_fee} || incentive fee = {incentive_fee} || remaining = {remaining}"
             )
         else:
-            return render(request, "reports/access_denied_manager.html")
+            return render(request, "reports/access_denied.html")
 
     @staticmethod
     @login_required
     def owners_report(request: HttpRequest) -> HttpResponseBase:
         owners = request.user.groups.filter(name="Owners") # pyright: ignore[reportAttributeAccessIssue]
-        income = Income()
+        income: Income = Income()
         income_total = income.total_income
-        expense = Expense()
+        expense: Expense = Expense()
         expense_total = expense.total_expense
         gop, base_fee, incentive_fee, remaining = calculate_the_report(
             income_total, expense_total
@@ -41,7 +41,7 @@ class Views:
                 f"GOP = {gop} || Base Fee = {base_fee} || Incentive Fee  = {incentive_fee} || Remaining = {remaining}"
             )
         else:
-            return render(request, "reports/access_denied_owner.html")
+            return render(request, "reports/access_denied.html")
 
     @staticmethod
     def home_page(request: HttpRequest) -> HttpResponseBase:
