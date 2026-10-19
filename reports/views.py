@@ -10,7 +10,7 @@ class Views:
     @staticmethod
     @login_required
     def managers_report(request: HttpRequest) -> HttpResponseBase:
-        managers = request.user.groups.filter(name="Managers") # pyright: ignore[reportAttributeAccessIssue]
+        managers = request.user.groups.filter(name="Managers")  # pyright: ignore[reportAttributeAccessIssue]
         income = Income()
         income_total = income.total_income()
         expense = Expense()
@@ -19,16 +19,23 @@ class Views:
             income_total, expense_total
         )
         if managers:
-            return HttpResponseBase(
-                f"gop = {gop} || base fee = {base_fee} || incentive fee = {incentive_fee} || remaining = {remaining}"
+            return render(
+                request,
+                "reports/managers-report",
+                {
+                    "gop": gop,
+                    "base_fee": base_fee,
+                    "incentive_fee": incentive_fee,
+                    "remaining": remaining,
+                },
             )
         else:
-            return render(request, "reports/access_denied.html")
+            return render(request, "reports/access-denied.html")
 
     @staticmethod
     @login_required
     def owners_report(request: HttpRequest) -> HttpResponseBase:
-        owners = request.user.groups.filter(name="Owners") # pyright: ignore[reportAttributeAccessIssue]
+        owners = request.user.groups.filter(name="Owners")  # pyright: ignore[reportAttributeAccessIssue]
         income: Income = Income()
         income_total = income.total_income
         expense: Expense = Expense()
@@ -37,12 +44,20 @@ class Views:
             income_total, expense_total
         )
         if owners:
-            return HttpResponseBase(
-                f"GOP = {gop} || Base Fee = {base_fee} || Incentive Fee  = {incentive_fee} || Remaining = {remaining}"
+            return render(
+                request,
+                "reports/owners-report",
+                {
+                    "gop": gop,
+                    "base_fee": base_fee,
+                    "incentive_fee": incentive_fee,
+                    "remaining": remaining,
+                },
             )
         else:
-            return render(request, "reports/access_denied.html")
+            return render(request, "reports/access-denied.html")
 
     @staticmethod
     def home_page(request: HttpRequest) -> HttpResponseBase:
-        return render(request, "reports/home_page.html")
+        return render(request, "reports/index.html")
+

@@ -66,4 +66,4 @@ class Documents(models.Model):
         self.month = models.DateField()
 
     def __str__(self) -> str:
-        return f"Date And Time = {self.month.strftime('%B - %Y - %d')}" # pyright: ignore[reportAttributeAccessIssue]
+        return f"Date And Time = {self.month.strftime('%B - %Y - %d')}"  # pyright: ignore[reportAttributeAccessIssue]
