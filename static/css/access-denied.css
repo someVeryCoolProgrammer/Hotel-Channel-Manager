@@ -1,0 +1,14 @@
+body {
+    backgound-color: #0F0F0F;
+    padding: 5px;
+    border: none;
+}
+
+.access-denied {
+    color: #E8E8E8;
+}
+
+.content {
+    text-align: center;
+    font-family: verdana, arial 
+}

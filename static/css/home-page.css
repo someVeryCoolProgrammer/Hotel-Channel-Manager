@@ -1,0 +1,55 @@
+body {
+    background-color: #0F0F0F;
+    padding: 5px;
+    border: none;
+}
+
+.home-page {
+    color: #E8E8E8;
+}
+
+.heading {
+    text-align: center;
+    font-family: cursive;
+    padding: 50px;
+}
+
+.container{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.login {
+    background-color: #3B82F6; 
+    width: 120px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none; 
+    font-family: bold;
+    font-size: 20px;
+}
+
+.nav {
+    text-align: center;
+    font-family: cursive;
+}
+
+.source-code {
+    color: #3B82F6;
+    font-family: Monospace;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.legal {
+    padding: 50px;
+    font-size: 20px
+}
+
+.user-email {
+    padding: 100px;
+    width: 100000px;
+    box-sizing: border-box;
+}

@@ -1,3 +1,3 @@
-# This project is currently underdevelopment and is not usable in its current state. 
+# This project is currently underdevelopment 
 
-A lot of the code was written by me around a 3-ish months ago. I have to do a lot of clean up because of how bad code quality currently is. 
+A lot of the code was written by me around a 3-ish months ago. Alot of the code has been cleaned up, and is technically useable if you self-host it. 

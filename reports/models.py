@@ -2,16 +2,15 @@ from decimal import Decimal
 from typing import cast
 
 from django.db import models
+from django.utils import timezone
 
 
 class Income(models.Model):
     """Calculates total income in a month"""
-
-    def __init__(self) -> None:
-        self.month = models.DateField()
-        self.room_revenue = models.DecimalField(max_digits=12, decimal_places=2)
-        self.food_and_beverage = models.DecimalField(max_digits=12, decimal_places=2)
-        self.other_income = models.DecimalField(max_digits=12, decimal_places=2)
+    _month = models.DateField(default=timezone.now)
+    room_revenue = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    food_and_beverage = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    other_income = models.DecimalField(max_digits=12, decimal_places=2, default=0)
 
     def total_income(self) -> Decimal:
         """
@@ -20,50 +19,50 @@ class Income(models.Model):
         Returns:
             int
         """
-        room: Decimal = cast(Decimal, self.room_revenue)
-        food_and_drinks: Decimal = cast(Decimal, self.food_and_beverage)
-        other: Decimal = cast(Decimal, self.other_income)
-        return room + food_and_drinks + other
+        return (
+            (self.room_revenue or Decimal("0"))
+            + (self.food_and_beverage or Decimal("0"))
+            + (self.other_income or Decimal("0"))
+        )
 
     def __str__(self) -> str:
         """
-        This methord returns the month's total income income.
+        This methord returns the month's total income.
 
         Returns:
             str
         """
-        return f"Date And Time = {self.month.strftime('%B - %Y')} | Total = {self.total_income()}"  # pyright: ignore[reportAttributeAccessIssue]
+        return f"Date And Time = {self._month.strftime('%B - %Y')} | Total = {self.total_income()}"
 
 
 class Expense(models.Model):
     """Calculates expenses in a month"""
-
-    def __init__(self) -> None:
-        self.month = models.DateField()
-        self.salaries = models.DecimalField(max_digits=12, decimal_places=2)
-        self.rent = models.DecimalField(max_digits=12, decimal_places=2)
-        self.water = models.DecimalField(max_digits=12, decimal_places=2)
-        self.ota_commissions = models.DecimalField(max_digits=12, decimal_places=2)
-        self.maintenance = models.DecimalField(max_digits=12, decimal_places=2)
-        self.other_costs = models.DecimalField(max_digits=12, decimal_places=2)
+    _month = models.DateField(default=timezone.now)
+    salaries = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    rent = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    water = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    ota_commissions = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    maintenance = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    other_income = models.DecimalField(max_digits=12, decimal_places=2, default=0)
 
     def total_expense(self) -> Decimal:
-        salaries: Decimal = cast(Decimal, self.salaries)
-        rent: Decimal = cast(Decimal, self.rent)
-        water: Decimal = cast(Decimal, self.water)
-        ota: Decimal = cast(Decimal, self.ota_commissions)
-        maintenance: Decimal = cast(Decimal, self.maintenance)
-        other: Decimal = cast(Decimal, self.other_costs)
-        return salaries + rent + water + ota + maintenance + other
+        return (
+            (self.salaries or Decimal("0"))
+            + (self.rent or Decimal("0"))
+            + (self.water or Decimal("0"))
+            + (self.ota_commissions or Decimal("0"))
+            + (self.maintenance or Decimal("0"))
+            + (self.other_income or Decimal("0"))
+        )
 
     def __str__(self) -> str:
-        return f"Date And Time = {self.month.strftime('%B - %Y')}  | Total Expense = {self.total_expense()}"  # pyright: ignore[reportAttributeAccessIssue]
+        return f"Date And Time = {self._month.strftime('%B - %Y')}  | Total Expense = {self.total_expense()}"
 
 
 class Documents(models.Model):
     def __init__(self) -> None:
-        self.document = models.FileField(upload_to=".bills")
-        self.month = models.DateField()
+        self._document = models.FileField(upload_to=".bills")
+        self._month = models.DateField(default=timezone.now)
 
     def __str__(self) -> str:
-        return f"Date And Time = {self.month.strftime('%B - %Y - %d')}"  # pyright: ignore[reportAttributeAccessIssue]
+        return f"Date And Time = {self._month.strftime('%B - %Y - %d')}"
