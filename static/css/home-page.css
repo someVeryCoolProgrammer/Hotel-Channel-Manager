@@ -5,7 +5,7 @@ body {
 }
 
 .home-page {
-    color: #E8E8E8;
+    color: #0F0F0F;
 }
 
 .heading {
@@ -14,7 +14,7 @@ body {
     padding: 50px;
 }
 
-.container{
+.login-container{
     position: absolute;
     top: 20px;
     right: 20px;
@@ -48,8 +48,35 @@ body {
     font-size: 20px
 }
 
-.user-email {
-    padding: 100px;
-    width: 100000px;
-    box-sizing: border-box;
+.user-email-container {
+    width: 300px;
+    padding: 110px;
+    border: 1px 89857E;
+    position: absolute;
+    left: 660px;    
+    top: 42px;
+}
+
+.user-input {
+    width: 110%;
+    height: auto;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.user-email-button-container {
+    position: absolute;
+    left: 343px;
+    top: 116px;
+}
+
+.user-email-button {
+    background-color: #3B82F6; 
+    width: 120px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none; 
+    font-family: bold;
+    font-size: 20px;
 }
