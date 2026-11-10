@@ -4,10 +4,6 @@ body {
     border: none;
 }
 
-.home-page {
-    color: #0F0F0F;
-}
-
 .heading {
     text-align: center;
     font-family: cursive;
@@ -44,7 +40,7 @@ body {
 }
 
 .legal {
-    padding: 50px;
+    padding: 100px;
     font-size: 20px
 }
 

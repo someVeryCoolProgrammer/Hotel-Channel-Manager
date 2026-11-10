@@ -1,14 +1,20 @@
 body {
     backgound-color: #0F0F0F;
-    padding: 5px;
+    padding: 20px;
     border: none;
 }
 
 .access-denied {
-    color: #E8E8E8;
+    color: #FF0000;
 }
 
 .content {
     text-align: center;
-    font-family: verdana, arial 
+    font-family: verdana, arial; 
+}
+
+.help-user {
+    text-align: center;
+    font-family: cursive, verdana, arial;
+    color: #3B82F6
 }
